@@ -1,0 +1,80 @@
+# 논리연산자
+isSuccess = True
+isPass = False
+
+if isSuccess and isPass:
+    print('A')
+else:
+    print('B')
+
+=============
+
+if isSuccess and isPass and isSuccess:
+        print('성공')
+
+===================
+
+class SafeProfile:
+        def __init__(self):
+                pass
+        def get(self,key):
+                return True
+
+user_profile = SafeProfile()
+print(user_profile.get('is_verified') )
+
+======================
+
+# 딕셔너리
+# key-value 한쌍이 하나의 값
+
+# 리스트 vs 딕셔너리
+list_1 = [10,20,30, [1,2,3] ]
+dict_1 = { 'kor':80 , 'eng':80 , 'math':90}
+
+# dict_1.keys()
+# dict_1.values()
+# dict_1.items()
+
+for i in dict_1.items():
+    print(i,i[0],i[1])
+
+number1, number2 = (10,20)
+print(number1, number2)
+
+==================
+
+파이썬 딕셔너리
+
+
+
+설명과 간단한 예제를 함께 제공하는데, 가장 많이 사용하는 case별로 정리해줘
+
+=================================================
+
+[Role]
+너는 온라인 게임 채팅 시스템의 백엔드 파이썬 개발자야.
+
+[Task]
+채팅 메시지에서 금지 단어를 찾아 마스킹(*) 처리하는 함수를 작성해줘.
+
+[Input]
+1. chat_message (str): 사용자가 입력한 채팅 메시지
+2. bad_words (list[str]): 금지 단어 목록
+
+[Output]
+- masked_message (str): 금지어가 '*'로 치환된 최종 문자열
+
+[Constraints & Logic]
+- 함수명: mask_bad_words(chat_message: str, bad_words: list[str]) -> str
+- 금지 단어의 글자 수만큼 '*'로 치환할 것 (예: "바보" -> "**")
+- 대소문자를 구분하지 않고 찾되, 원본 메시지의 다른 문장 구조는 그대로 보존할 것
+- 주석으로 각 핵심 라인이 어떻게 동작하는지 초보자도 알기 쉽게 달아줄 것
+- 생성하는 코드는 대중적으로 해석하기 쉬운 기본 문법과 라이브러리 만을 사용할 것
+- 생성된 코드는 오류가 없는지 확인할 것
+- 예측가능한 테스트케이스를 (assert 사용) 다양하게 만들고 실행해서 오류가 있으면 수정할 것
+
+===============
+
+if " ":
+        print("abc")

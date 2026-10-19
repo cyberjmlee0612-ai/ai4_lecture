@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 1 · Python 실습 노트</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">PYTHON STUDY / DAY 01</p>
+      <h1>입력하고, 실행하고,<br>결과를 확인하세요.</h1>
+      <p class="intro">변수부터 숫자 맞추기까지. 다섯 가지 기초 실습을 브라우저에서 직접 해보세요.</p>
+      <p class="note">설치 없이 사용하는 실습 화면 · HTML + CSS + JavaScript</p>
+    </div>
+  </header>
+  <nav aria-label="실습 바로가기"><div class="wrap links">
+    <a href="#variables">01 변수</a><a href="#conditions">02 조건문</a><a href="#lists">03 리스트</a><a href="#multiplication">04 반복문</a><a href="#game">05 숫자 게임</a>
+  </div></nav>
+  <main class="wrap">
+    <p class="guide">값을 바꿔 실행해 보세요. 각 실습의 <strong>Python 코드 보기</strong>를 열면 기존 모듈과 연결해서 복습할 수 있습니다. 화면의 동작은 JavaScript로 구현했으며 Python 파일을 실행하지는 않습니다.</p>
+    <div class="grid">
+      <section class="card" id="variables" aria-labelledby="title-1">
+        <div class="card-heading"><span class="number">01</span><span class="tag">변수 · 연산 · 출력</span></div>
+        <h2 id="title-1">두 숫자 더하기</h2><p>변수에 값을 저장하고 덧셈 결과를 확인합니다.</p>
+        <form id="variables-form">
+          <div class="fields"><label>첫 번째 정수<input id="number-1" type="number" step="1" value="100" required></label><label>두 번째 정수<input id="number-2" type="number" step="1" value="200" required></label></div>
+          <button type="submit">덧셈 실행 <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="result" id="variables-result" role="status" aria-live="polite">숫자를 입력하고 덧셈을 실행하세요.</div>
+        <details><summary>Python 코드 보기</summary><pre><code>number1 = 100
+number2 = 200
+print("number1 + number2 =", number1 + number2)</code></pre><p class="practice">추가 연습: 뺄셈과 곱셈으로 바꿔 보세요.<br>모듈: exercises/variables.py</p></details>
+      </section>
+      <section class="card" id="conditions" aria-labelledby="title-2">
+        <div class="card-heading"><span class="number">02</span><span class="tag">입력 · if / else</span></div>
+        <h2 id="title-2">합격 여부 확인</h2><p>60점 이상이면 합격입니다. 경계값 59와 60을 비교해 보세요.</p>
+        <form id="conditions-form"><label>점수 (0~100)<input id="score" type="number" min="0" max="100" step="1" value="60" required></label><button type="submit">점수 확인 <span aria-hidden="true">→</span></button></form>
+        <div class="result" id="conditions-result" role="status" aria-live="polite">점수를 입력하고 결과를 확인하세요.</div>
+        <details><summary>Python 코드 보기</summary><pre><code>score = int(input("점수: "))
+if score &gt;= 60:
+    print("합격")
+else:
+    print("불합격")</code></pre><p class="practice">추가 연습: 80점 이상은 우수로 구분해 보세요.<br>모듈: exercises/conditions.py</p></details>
+      </section>
+      <section class="card" id="lists" aria-labelledby="title-3">
+        <div class="card-heading"><span class="number">03</span><span class="tag">리스트 · for · %</span></div>
+        <h2 id="title-3">짝수만 골라내기</h2><p>다섯 정수를 리스트에 넣고, 2로 나눈 나머지가 0인 값을 찾습니다.</p>
+        <form id="lists-form"><label>정수 5개 (쉼표 또는 공백으로 구분)<input id="numbers" type="text" value="1, 2, 3, 4, 5" required aria-describedby="list-hint"></label><p class="hint" id="list-hint">예: -2, 0, 3, 4, 5 · 0과 음수도 입력할 수 있습니다.</p><button type="submit">짝수 찾기 <span aria-hidden="true">→</span></button></form>
+        <div class="result" id="lists-result" role="status" aria-live="polite">입력한 리스트와 짝수가 여기에 표시됩니다.</div>
+        <details><summary>Python 코드 보기</summary><pre><code>scores = []
+for i in range(5):
+    scores.append(int(input("숫자: ")))
+for number in scores:
+    if number % 2 == 0:
+        print(number)</code></pre><p class="practice">추가 연습: 홀수를 찾거나 합계를 계산해 보세요.<br>모듈: exercises/lists.py</p></details>
+      </section>
+      <section class="card" id="multiplication" aria-labelledby="title-4">
+        <div class="card-heading"><span class="number">04</span><span class="tag">중첩 for · range</span></div>
+        <h2 id="title-4">구구단 펼쳐 보기</h2><p>반복문의 순서를 바꾸면 같은 계산도 다른 방향으로 표시됩니다.</p>
+        <form id="multiplication-form"><div class="fields"><label>출력 방향<select id="table-mode"><option value="by-dan">단별 출력 (2~4단)</option><option value="by-row">가로 출력 (2~9단)</option></select></label><label>곱하는 수의 끝값<select id="table-end"><option value="4">4까지 (원본)</option><option value="9">9까지 (추가 연습)</option></select></label></div><button type="submit">구구단 출력 <span aria-hidden="true">→</span></button></form>
+        <div class="result" id="multiplication-result" role="status" aria-live="polite">출력 방향을 선택하고 구구단을 실행하세요.</div>
+        <details><summary>Python 코드 보기</summary><pre><code>for dan in range(2, 5):
+    for i in range(1, 5):
+        print(f"{dan} x {i} = {dan * i}", end="\t")
+    print()</code></pre><p class="practice">추가 연습: range(1, 10)으로 9까지 출력해 보세요.<br>모듈: exercises/multiplication.py</p></details>
+      </section>
+      <section class="card game" id="game" aria-labelledby="title-5">
+        <div class="card-heading"><span class="number">05</span><span class="tag">난수 · 비교 · 반복</span></div>
+        <h2 id="title-5">숫자 맞추기 게임</h2><p>1~100 사이의 정수를 골랐습니다. 크다 / 작다 힌트를 따라 정답을 찾아보세요.</p>
+        <form id="game-form"><div class="game-controls"><label>예상 숫자<input id="guess" type="number" min="1" max="100" step="1" placeholder="1~100" required></label><button id="guess-button" type="submit">정답 확인</button><button class="secondary" id="reset-game" type="button">새 게임</button></div></form>
+        <div class="result" id="game-result" role="status" aria-live="polite">첫 번째 숫자를 입력하세요. 시도 횟수: 0</div>
+        <ol id="game-history" aria-label="추측 기록"></ol>
+        <details><summary>Python 코드 보기</summary><pre><code>import random
+com_number = random.randint(1, 100)
+count = 0
+while True:
+    user_number = int(input("1~100: "))
+    count += 1
+    if user_number &gt; com_number:
+        print("정답보다 큽니다.")
+    elif user_number &lt; com_number:
+        print("정답보다 작습니다.")
+    else:
+        print(f"정답! 총 시도 횟수: {count}")
+        break</code></pre><p class="practice">추가 연습: 최대 시도 횟수를 7회로 제한해 보세요.<br>모듈: exercises/number_game.py</p></details>
+      </section>
+    </div>
+  </main>
+  <footer class="wrap">DAY 01 / 작은 실습을 반복하며 기초를 익혀보세요.</footer>
+</body>
+</html>
