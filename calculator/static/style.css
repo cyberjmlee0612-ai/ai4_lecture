@@ -1,0 +1,25 @@
+:root { color-scheme: light; font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color: #1b2d3b; background: #f0f5f4; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+.calculator { width: 100%; max-width: 640px; padding: 44px; background: white; border: 1px solid #dce6e3; border-radius: 24px; box-shadow: 0 18px 55px #2344380c; }
+.eyebrow { margin: 0 0 14px; color: #26735e; font-size: 11px; font-weight: 800; letter-spacing: 2px; }
+h1 { margin: 0; font-size: clamp(27px, 5vw, 36px); letter-spacing: -1.6px; }
+.intro { color: #596a76; line-height: 1.8; margin: 14px 0 30px; font-size: 14px; }
+.inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+input { width: 100%; min-width: 0; padding: 16px; border: 1px solid #b8c9c3; border-radius: 10px; background: #fcfdfd; font: inherit; font-size: 20px; }
+input::placeholder { font-size: 16px; color: #78868e; }
+input:focus-visible, button:focus-visible { outline: 3px solid #287b65; outline-offset: 3px; }
+.operations { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+button { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 13px 4px; border-radius: 10px; border: 1px solid #d4e3dd; background: #f0f6f3; color: #215c4c; font: inherit; font-size: 12px; cursor: pointer; }
+button:hover, button.selected { background: #21654f; color: white; border-color: #21654f; }
+.symbol { font-size: 26px; line-height: 1.2; }
+.result { background: #f1f6f4; border-radius: 14px; padding: 24px; margin-top: 28px; min-height: 132px; overflow-wrap: anywhere; }
+.result-label { margin: 0 0 12px; color: #496458; font-size: 13px; }
+.answer { margin: 0; color: #174e3b; font-size: clamp(24px, 5vw, 36px); font-weight: 800; font-variant-numeric: tabular-nums; }
+.empty, .rounding { color: #596a76; font-size: 14px; line-height: 1.6; }
+.has-error { background: #fff1ee; }
+.has-error .result-label, .error { color: #a02d22; }
+.error { line-height: 1.7; margin: 0; }
+.hint { font-size: 11px; color: #64756d; line-height: 1.8; margin: 18px 0 0; }
+@media (max-width: 480px) { body { padding: 16px; } .calculator { padding: 28px 20px; } .inputs { grid-template-columns: 1fr; } }

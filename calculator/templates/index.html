@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>두 수 계산기</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+  <main class="calculator">
+    <p class="eyebrow">FASTAPI CALCULATOR</p>
+    <h1>두 수, 간단하게.</h1>
+    <p class="intro">숫자 두 개를 입력하고 원하는 연산을 눌러 주세요.</p>
+
+    <form method="post" action="/calculate">
+      <div class="inputs">
+        <div>
+          <label for="a">첫 번째 수</label>
+          <input id="a" name="a" type="text" inputmode="decimal"
+                 placeholder="예: 12.5" value="{{ a | default('') }}"
+                 maxlength="40" required autocomplete="off">
+        </div>
+        <div>
+          <label for="b">두 번째 수</label>
+          <input id="b" name="b" type="text" inputmode="decimal"
+                 placeholder="예: 2" value="{{ b | default('') }}"
+                 maxlength="40" required autocomplete="off">
+        </div>
+      </div>
+      <div class="operations" role="group" aria-label="사칙연산 선택">
+        {% for name, symbol, label in [('add', '+', '더하기'), ('subtract', '−', '빼기'), ('multiply', '×', '곱하기'), ('divide', '÷', '나누기')] %}
+        <button type="submit" name="operation" value="{{ name }}"
+                class="{{ 'selected' if operation | default('') == name else '' }}">
+          <span class="symbol" aria-hidden="true">{{ symbol }}</span>
+          <span>{{ label }}</span>
+        </button>
+        {% endfor %}
+      </div>
+    </form>
+
+    <section class="result {{ 'has-error' if error else '' }}" aria-live="polite" aria-label="계산 결과">
+      {% if error %}
+        <p class="result-label">입력을 확인해 주세요</p>
+        <p class="error" role="alert">{{ error }}</p>
+      {% elif result %}
+        <p class="result-label">{{ a }} {{ result.symbol }} {{ b }}</p>
+        <p class="answer">{{ '≈ ' if result.approximate else '= ' }}{{ result.value }}</p>
+        {% if result.approximate %}<p class="rounding">소수점 아래 12자리까지 반올림한 결과입니다.</p>{% endif %}
+      {% else %}
+        <p class="result-label">계산 결과</p>
+        <p class="empty">결과가 여기에 표시됩니다.</p>
+      {% endif %}
+    </section>
+    <p class="hint">음수·소수 입력 가능 · 절댓값 최대 1조 · 소수점 아래 최대 12자리</p>
+  </main>
+</body>
+</html>
