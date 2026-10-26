@@ -13,11 +13,11 @@ if __package__:
     from .exercises.multiplication import practice_4
     from .exercises.number_game import practice_5
 else:
-    from day1.day1_practice.exercises.variables import practice_1
-    from day1.day1_practice.exercises.conditions import practice_2
-    from day1.day1_practice.exercises.lists import practice_3
-    from day1.day1_practice.exercises.multiplication import practice_4
-    from day1.day1_practice.exercises.number_game import practice_5
+    from ai4_lecture.day1.day1_practice.exercises.variables import practice_1
+    from ai4_lecture.day1.day1_practice.exercises.conditions import practice_2
+    from ai4_lecture.day1.day1_practice.exercises.lists import practice_3
+    from ai4_lecture.day1.day1_practice.exercises.multiplication import practice_4
+    from ai4_lecture.day1.day1_practice.exercises.number_game import practice_5
 
 
 def main():

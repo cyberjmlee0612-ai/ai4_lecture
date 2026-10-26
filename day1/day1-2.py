@@ -2,7 +2,7 @@
 # 사용자 데이터 받기
 
 score = int(input("점수를 입력하세요 : "))
-if  scor >= 60 :
+if  score >= 60 :
     print("합격")
 else :
     print("불합격")

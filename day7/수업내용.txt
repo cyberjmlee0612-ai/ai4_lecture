@@ -1,0 +1,11 @@
+string_msg
+(파일첨부) 해당 폴더에 사용된 기술을 이용해서 동기와 비ㅣ동기 상황을 재현한 앱을 하나 작성해줘
+
+일반적인 웹서비스에서 쉽게 접할 수 있는 예제로 화면도 구성해서 작성해줘
+
+하위폴더에 작성하고 실행방법도 가이드해줘
+
+
+uvicorn day7.03.mook_api:app --reload --port 9000
+
+uvicorn day7.03.mook_api:app --relode
